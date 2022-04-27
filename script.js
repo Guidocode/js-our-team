@@ -60,28 +60,35 @@ const teamMembers =[
 ];
 
 
-for(let i in teamMembers){
 
-  const member = teamMembers[i];
-  console.log(member);
+stampaMembri();
 
-  const output = 
-  `
-  <div class="team-card">
-    <div class="card-image">
-      <img
-        src="${member.foto}"
-        alt="Wayne Barnett"
-      />
+function stampaMembri() {
+  
+  for(let i in teamMembers){
+
+    const member = teamMembers[i];
+    console.log(member);
+  
+    const output = 
+    `
+    <div class="team-card">
+      <div class="card-image">
+        <img
+          src="${member.foto}"
+          alt="Wayne Barnett"
+        />
+      </div>
+      <div class="card-text">
+        <h3>${member.nome}</h3>
+        <p>${member.ruolo}</p>
+      </div>
     </div>
-    <div class="card-text">
-      <h3>${member.nome}</h3>
-      <p>${member.ruolo}</p>
-    </div>
-  </div>
-  `;
+    `;
+  
+    document.querySelector('.team-container').innerHTML += output;
+  }
 
-  document.querySelector('.team-container').innerHTML += output;
 }
 
 
@@ -89,10 +96,21 @@ for(let i in teamMembers){
 function btnAdd() {
   
   const newMember = {
-    nome: 'document.getElementById(name).value',
-    ruolo: 'document.getElementById(role).value',
-    foto: 'document.getElementById(image).value'
+    nome: document.getElementById('name').value,
+    ruolo: document.getElementById('role').value,
+    foto: document.getElementById('image').value
   };
 
   teamMembers.push(newMember);
+
+  stampaMembri(newMember);
+  
 }
+
+
+// Foto new members
+/*
+  img/new-team-member-01.jpg
+  img/new-team-member-02.jpg
+  img/new-team-member-03.jpg
+*/
