@@ -20,6 +20,11 @@
   inserite dall’utente.
 */
 
+
+document.getElementById('addMemberButton').addEventListener('click', btnAdd);
+
+
+
 const teamMembers =[
 
   {
@@ -77,4 +82,17 @@ for(let i in teamMembers){
   `;
 
   document.querySelector('.team-container').innerHTML += output;
+}
+
+
+// BONUS 
+function btnAdd() {
+  
+  const newMember = {
+    nome: 'document.getElementById(name).value',
+    ruolo: 'document.getElementById(role).value',
+    foto: 'document.getElementById(image).value'
+  };
+
+  teamMembers.push(newMember);
 }
