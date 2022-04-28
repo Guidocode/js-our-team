@@ -65,6 +65,8 @@ stampaMembri();
 
 function stampaMembri() {
   
+  document.querySelector('.team-container').innerHTML = '';
+
   for(let i in teamMembers){
 
     const member = teamMembers[i];
@@ -76,7 +78,7 @@ function stampaMembri() {
       <div class="card-image">
         <img
           src="${member.foto}"
-          alt="Wayne Barnett"
+          alt="${member.nome}"
         />
       </div>
       <div class="card-text">
@@ -104,7 +106,15 @@ function btnAdd() {
   teamMembers.push(newMember);
 
   stampaMembri(newMember);
+
+  resetForm();
   
+}
+
+function resetForm(){
+  document.getElementById('name').value = '';
+  document.getElementById('role').value = '';
+  document.getElementById('image').value = '';
 }
 
 
